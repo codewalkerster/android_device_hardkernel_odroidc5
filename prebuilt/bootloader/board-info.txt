@@ -1,0 +1,2 @@
+require board=ross
+require version-bootloader=01.01.240807.211528

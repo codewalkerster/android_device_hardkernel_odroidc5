@@ -1,0 +1,64 @@
+{
+  "levels": {
+    "low": [
+      {
+        "sys_write": {
+          "path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
+          "value": "1000000"
+        }
+      },
+      {
+        "sys_write": {
+          "path": "/sys/class/video/aisr_en",
+          "value": "0"
+        }
+      },
+      {
+        "prop_write": {
+          "path": "vendor.media.video.lowpower",
+          "value": "true"
+        }
+      }
+    ],
+    "middle": [
+      {
+        "sys_write": {
+          "path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
+          "value": "1800000"
+        }
+      },
+      {
+        "prop_write": {
+          "path": "vendor.media.video.donglelowpower.pqoff",
+          "value": "off"
+        }
+      },
+      {
+        "prop_write": {
+          "path": "vendor.media.video.middlepower",
+          "value": "true"
+        }
+      }
+    ],
+    "high": [
+      {
+        "sys_write": {
+          "path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
+          "value": "2352000"
+        }
+      },
+      {
+        "prop_write": {
+          "path": "vendor.media.video.donglelowpower.pqoff",
+          "value": "on"
+        }
+      },
+      {
+        "prop_write": {
+          "path": "vendor.media.video.highpower",
+          "value": "true"
+        }
+      }
+    ]
+  }
+}
