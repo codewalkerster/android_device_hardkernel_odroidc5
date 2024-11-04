@@ -1,2 +1,2 @@
-require board=ross
+require board=odroidc5
 require version-bootloader=01.01.240807.211528

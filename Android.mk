@@ -20,7 +20,7 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-ifneq (,$(filter $(TARGET_PRODUCT),ross ross_hybrid ross_atv ross_cbs ross_soundbar ))
+ifneq (,$(filter $(TARGET_PRODUCT),odroidc5 odroidc5_hybrid odroidc5_atv odroidc5_cbs odroidc5_soundbar ))
 LOCAL_PATH := $(call my-dir)
 # if some modules are built directly from this directory (not subdirectories),
 # their rules should be written here.

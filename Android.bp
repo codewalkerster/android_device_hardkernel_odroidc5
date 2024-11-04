@@ -7,11 +7,11 @@ soong_namespace {
 }
 
 package {
-    default_applicable_licenses: ["device_amlogic_ross_license"],
+    default_applicable_licenses: ["device_hardkernel_odroidc5_license"],
 }
 
 license {
-    name: "device_amlogic_ross_license",
+    name: "device_hardkernel_odroidc5_license",
     visibility: [":__subpackages__"],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",

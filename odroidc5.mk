@@ -233,7 +233,7 @@ BOARD_AML_SECUREBOOT_SOC_TYPE := sc2
 
 PRODUCT_GOOGLEREF_SECURE_BOOT := false
 ifeq ($(PRODUCT_GOOGLEREF_SECURE_BOOT),true)
-PRODUCT_GOOGLEREF_SECURE_BOOT_TOOL := ./device/hardkernel/$(PRODUCT_DIR)/tools/amlogic-sign-ross.sh
+PRODUCT_GOOGLEREF_SECURE_BOOT_TOOL := ./device/hardkernel/$(PRODUCT_DIR)/tools/amlogic-sign-odroidc5.sh
 endif
 
 #########################################################################
@@ -383,7 +383,7 @@ PRODUCT_PRODUCT_PROPERTIES += ro.vendor.audio.use.ms12heaac=true
 ###                       Add ini config
 ########################################################################
 ifeq ($(TARGET_BUILD_TYPE_SOUNDBAR),true)
-    PRODUCT_PRODUCT_PROPERTIES += vendor.tv.model_name=ROSS
+    PRODUCT_PRODUCT_PROPERTIES += vendor.tv.model_name=ODROIDC5
     PRODUCT_COPY_FILES += \
         device/hardkernel/common/audio/audio_config/model_sum.ini:$(TARGET_COPY_OUT_VENDOR)/etc/audio_config/model_sum.ini \
         device/hardkernel/common/audio/audio_config/AMLOGIC_SOC_ROSS.ini:$(TARGET_COPY_OUT_VENDOR)/etc/audio_config/AMLOGIC_SOC_ROSS.ini \
