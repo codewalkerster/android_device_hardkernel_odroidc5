@@ -456,3 +456,8 @@ include device/hardkernel/$(PRODUCT_DIR)/AVSync.mk
 PRODUCT_SUPPORT_4K_UI := true
 PRODUCT_SUPPORT_ATK_UI := true
 TARGET_BUILD_GMS := true
+
+ifneq ("$(wildcard vendor/gapps/arm/arm-vendor.mk)","")
+#PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+    $(call inherit-product, vendor/gapps/arm/arm-vendor.mk)
+endif
