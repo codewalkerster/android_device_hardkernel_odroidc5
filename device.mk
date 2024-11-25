@@ -212,3 +212,8 @@ ifneq ($(wildcard vendor/amlogic/ross/broadcaststack/$(CBS_VERSION)),)
 $(call inherit-product-if-exists,vendor/amlogic/ross/broadcaststack/$(CBS_VERSION)/dtvstack.mk)
 endif
 endif
+
+ifeq ($(BOARD_HAS_GPS),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
+endif
