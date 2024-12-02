@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# ODROID specific configs
+ODROID_BOARD := true
+
 PRODUCT_MAKEFILES := $(LOCAL_DIR)/odroidc5.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_hybrid.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_soundbar.mk

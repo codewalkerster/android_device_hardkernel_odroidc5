@@ -17,11 +17,13 @@ TARGET_BUILD_KERNEL_VERSION ?= 5.15
 # This file is the build configuration for a full Android
 # build for Meson reference board.
 #
+ifneq ($(ODROID_BOARD), true)
 #ATV version, need compile DRM related modules
 ifneq ($(BOARD_COMPILE_ATV),false)
 BOARD_COMPILE_CTS := true
 ATV_LAUNCHER ?= amati
 endif
+endif # not ODROID_BOARD
 
 PRODUCT_DIR := odroidc5
 
@@ -30,6 +32,12 @@ PRODUCT_DIR := odroidc5
 ########################################################################
 TARGET_BUILD_OEM_WITH_LICENSE_FILES := true
 
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.surface_flinger.max_graphics_width=1920  \
+    ro.surface_flinger.max_graphics_height=1080 \
+    ro.sf.lcd_density=240
+else
 ifeq ($(BOARD_COMPILE_ATV), false)
 #config of AM301 1080P UI surfaceflinger
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -37,6 +45,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.surface_flinger.max_graphics_height=1080 \
     ro.sf.lcd_density=240
 endif
+endif # ODROID_BOARD
 
 #########################################################################
 #
@@ -287,6 +296,7 @@ BUILD_WITH_WIDEVINECAS := false
 
 #########################################################################
 
+ifneq ($(ODROID_BOARD), true)
 #########################################################################
 #
 #  WifiDisplay
@@ -295,6 +305,7 @@ BUILD_WITH_WIDEVINECAS := false
 ifeq ($(BOARD_COMPILE_ATV), false)
 BUILD_WITH_MIRACAST := true
 endif
+endif # not ODROID_BOARD
 
 #########################################################################
 

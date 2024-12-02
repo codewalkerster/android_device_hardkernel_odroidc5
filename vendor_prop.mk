@@ -43,6 +43,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #             ASOP     : IR_NONE
 #
 ##############################################################################
+ifeq ($(ODROID_BOARD), true)
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.remote.type=IR_NONE
+else
 ifneq ($(BOARD_COMPILE_ATV),false)
 PRODUCT_PROPERTY_OVERRIDES += \
         sys.vendor.remote.type=BT_B12
@@ -50,6 +54,7 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.remote.type=IR_NONE
 endif
+endif # ODROID_BOARD
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.mediahal.videodec.media.c2_segment0_max_size=0\
