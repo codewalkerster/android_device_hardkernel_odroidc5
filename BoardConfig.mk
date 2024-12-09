@@ -257,6 +257,7 @@ include device/hardkernel/common/soong_config/soong_config.mk
 #           OEM Partitions based dynamic fingerprint
 #
 #########################################################################
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 #Building raw OEM images with "make custom_images"
 PRODUCT_CUSTOM_IMAGE_MAKEFILES := \
@@ -299,6 +300,7 @@ OEM_OTA_CONFIG := device/hardkernel/odroidc5/oem/oem_atv.prop
 endif
 
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(BOARD_USES_VBMETA_SYSTEM),true)
 # Enable chain partition for system.

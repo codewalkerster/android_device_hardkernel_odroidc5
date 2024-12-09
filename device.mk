@@ -208,6 +208,7 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/mali_platform.config:$(TARGET_COPY_OUT_VENDOR)/etc/mali_platform.config \
     device/hardkernel/$(PRODUCT_DIR)/files/aml_afrc_allowlist.config:$(TARGET_COPY_OUT_VENDOR)/etc/aml_afrc_allowlist.config
 
+ifneq ($(ODROID_BOARD), true)
 ifeq ($(BOARD_USES_DYNAMIC_FINGERPRINT),true)
 PRODUCT_OEM_PROPERTIES := ro.product.name
 PRODUCT_OEM_PROPERTIES += ro.product.brand
@@ -215,6 +216,7 @@ PRODUCT_OEM_PROPERTIES += ro.product.device
 PRODUCT_OEM_PROPERTIES += ro.product.manufacturer
 PRODUCT_OEM_PROPERTIES += ro.product.model
 endif
+endif # not ODROID_BOARD
 
 ifeq ($(SUPPORT_CBS),true)
 ifneq ($(wildcard vendor/amlogic/ross/broadcaststack/$(CBS_VERSION)),)

@@ -187,9 +187,14 @@ OTA_UP_PART_NUM_CHANGED := true
 PLATFORM_TDK_VERSION := 318
 BOARD_AML_SOC_TYPE ?= S905X5M
 BOARD_AML_TDK_KEY_PATH := device/hardkernel/common/tdk_keys/
+ifeq ($(ODROID_BOARD), true)
+BUILD_WITH_AVB := false
+BOARD_USES_VBMETA_SYSTEM := false
+else
 BUILD_WITH_AVB := true
-BUILD_WITH_UDC := false
 BOARD_USES_VBMETA_SYSTEM := true
+endif # ODROID_BOARD
+BUILD_WITH_UDC := false
 
 #LAUNCH_VERSION default U
 LAUNCH_VERSION ?= U
@@ -202,7 +207,11 @@ HWC_ENABLE_AIDL := true
 
 TARGET_USE_AML_EROFS_TOOL := true
 
+ifeq ($(ODROID_BOARD), true)
+AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_5_15.txt
+else
 AML_GPT_PART := device/hardkernel/odroidc5/part_table_5_15.txt
+endif
 
 ifneq ($(KERNEL_A32_SUPPORT),true)
 BOARD_PREBUILT_BOOTIMAGE := device/hardkernel/odroidc5-kernel/5.15/gki/boot-lz4.img
@@ -420,14 +429,27 @@ BOARD_USES_USB_PM := true
 #           OEM Partitions based dynamic fingerprint
 #
 #########################################################################
+ifeq ($(ODROID_BOARD), true)
+BOARD_USES_DYNAMIC_FINGERPRINT ?= false
+else
 BOARD_USES_DYNAMIC_FINGERPRINT ?= true
+endif # ODROID_BOARD
 
 my_src_fstab := fstab.ab_oem
+
+ifeq ($(ODROID_BOARD), true)
+my_dst_fstab := $(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.amlogic
+
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(PRODUCT_DIR)/$(my_src_fstab).hardkernel:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.amlogic \
+    device/hardkernel/$(PRODUCT_DIR)/$(my_src_fstab).hardkernel:$(my_dst_fstab)
+else
 my_dst_fstab := $(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.amlogic
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/$(my_src_fstab).amlogic:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.amlogic \
     device/hardkernel/$(PRODUCT_DIR)/$(my_src_fstab).amlogic:$(my_dst_fstab)
+endif # ODROID_BOARD
 
 
 $(call inherit-product, device/hardkernel/common/media.mk)
