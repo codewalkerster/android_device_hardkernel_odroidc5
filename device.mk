@@ -23,10 +23,6 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_common.xml
 #DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_ir.xml
 
-ifeq ($(TARGET_BUILD_IRDETO),true)
-DEVICE_MANIFEST_FILE += device/hardkernel/$(PRODUCT_DIR)/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_irdeto.xml
-endif
-
 ifeq ($(BUILD_WITH_MIRACAST),true)
 DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_wfd.xml
 endif
@@ -87,11 +83,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/init.amlogic.board.ext.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.board.rc
 endif
 endif # ODROID_BOARD
-
-ifeq ($(TARGET_BUILD_IRDETO),true)
-PRODUCT_COPY_FILES += \
-    device/hardkernel/common/initscripts/audio.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/audio.rc
-endif
 
 #########################################################################
 #
@@ -217,12 +208,6 @@ PRODUCT_OEM_PROPERTIES += ro.product.manufacturer
 PRODUCT_OEM_PROPERTIES += ro.product.model
 endif
 endif # not ODROID_BOARD
-
-ifeq ($(SUPPORT_CBS),true)
-ifneq ($(wildcard vendor/amlogic/ross/broadcaststack/$(CBS_VERSION)),)
-$(call inherit-product-if-exists,vendor/amlogic/ross/broadcaststack/$(CBS_VERSION)/dtvstack.mk)
-endif
-endif
 
 ifeq ($(BOARD_HAS_GPS),true)
 PRODUCT_COPY_FILES += \

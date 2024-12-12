@@ -18,23 +18,7 @@
 ODROID_BOARD := true
 
 PRODUCT_MAKEFILES := $(LOCAL_DIR)/odroidc5.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_hybrid.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_soundbar.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_atv.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/odroidc5_cbs.mk
 COMMON_LUNCH_CHOICES := \
     odroidc5-eng \
     odroidc5-user \
-    odroidc5-userdebug \
-    odroidc5_atv-eng \
-    odroidc5_atv-user \
-    odroidc5_atv-userdebug \
-    odroidc5_cbs-eng \
-    odroidc5_cbs-user \
-    odroidc5_cbs-userdebug \
-    odroidc5_soundbar-eng \
-    odroidc5_soundbar-user \
-    odroidc5_soundbar-userdebug \
-    odroidc5_hybrid-eng \
-    odroidc5_hybrid-user \
-    odroidc5_hybrid-userdebug
+    odroidc5-userdebug

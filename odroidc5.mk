@@ -88,66 +88,6 @@ include device/hardkernel/common/video_algorithm/cuva/cuva.mk
 SOFT_AFBC_MODULE := true
 include device/hardkernel/common/soft_afbc/soft_afbc.mk
 
-########################################################################
-#
-#                            TV
-#
-########################################################################
-PRODUCT_SUPPORT_DTVKIT ?= false
-TARGET_BUILD_IRDETO := false
-SUPPORT_CBS ?= false
-
-ifeq ($(TARGET_BUILD_IRDETO),true)
-TARGET_BUILD_LIVETV := true
-endif
-
-ifeq ($(SUPPORT_CBS),true)
-SUPPORT_TUNERHAL := true
-CBS_VERSION := V3
-TUNER_MODULE := cxd2856
-endif
-
-ifeq ($(PRODUCT_SUPPORT_DTVKIT),true)
-SUPPORT_DTVKIT_IN_VENDOR := true
-TARGET_BUILD_LIVETV := true
-
-#PRODUCT_SUPPORT_DTVKIT_PIP := true
-#PRODUCT_SUPPORT_DTVKIT_FCC := true
-
-ifeq ($(PRODUCT_SUPPORT_DTVKIT_PIP),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.tv.dtv.pipfcc.architecture=true \
-    vendor.amtsplayer.pipeline=1 \
-    vendor.tv.dtv.enable.pip=true
-endif
-
-ifeq ($(PRODUCT_SUPPORT_DTVKIT_FCC),true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.tv.dtv.pipfcc.architecture=true \
-    vendor.amtsplayer.pipeline=1 \
-    vendor.tv.dtv.enable.fcc=true
-endif
-endif#dtvkit
-
-ifeq ($(TARGET_BUILD_LIVETV),true)
-#tuner
-TUNER_MODULE := cxd2856
-
-PRODUCT_PACKAGES += \
-    droidlogic.tv.software.core.xml
-
-#dvbstack
-BOARD_HAS_ADTV := true
-
-TARGET_BUILD_LIBDVR := true
-ifeq ($(TARGET_BUILD_LIBDVR),true)
-PRODUCT_PACKAGES += \
-    libamdvr
-endif
-endif
-
-BOARD_ENABLE_FAR_FIELD_AEC := true
-
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
@@ -414,13 +354,6 @@ endif
 #################################################################################
 
 #TARGET_BUILD_WITH_DOVI := true
-
-#################################################################################
-#
-#  DEFAULT LOWMEMORYKILLER CONFIG
-#
-#################################################################################
-BUILD_WITH_LOWMEM_COMMON_CONFIG := true
 
 BOARD_USES_USB_PM := true
 
