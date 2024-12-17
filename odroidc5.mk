@@ -32,20 +32,11 @@ PRODUCT_DIR := odroidc5
 ########################################################################
 TARGET_BUILD_OEM_WITH_LICENSE_FILES := true
 
-ifeq ($(ODROID_BOARD), true)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.max_graphics_width=1920  \
-    ro.surface_flinger.max_graphics_height=1080 \
-    ro.sf.lcd_density=240
-else
-ifeq ($(BOARD_COMPILE_ATV), false)
 #config of AM301 1080P UI surfaceflinger
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.surface_flinger.max_graphics_width=1920  \
     ro.surface_flinger.max_graphics_height=1080 \
     ro.sf.lcd_density=240
-endif
-endif # ODROID_BOARD
 
 #########################################################################
 #
