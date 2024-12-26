@@ -63,7 +63,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/amlogic \
     vendor/amlogic/common \
     vendor/amlogic/reference \
-    vendor/amlogic/$(PRODUCT_DIR)
+    vendor/amlogic/$(PRODUCT_DIR) \
+    packages/apps/OdroidSettings
 
 PRODUCT_CHARACTERISTICS := tablet
 
