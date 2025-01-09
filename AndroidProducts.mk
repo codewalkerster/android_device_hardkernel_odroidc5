@@ -16,6 +16,7 @@
 
 # ODROID specific configs
 ODROID_BOARD := true
+ANDROID_BUILD_TYPE := 64
 
 PRODUCT_MAKEFILES := $(LOCAL_DIR)/odroidc5.mk
 COMMON_LUNCH_CHOICES := \
