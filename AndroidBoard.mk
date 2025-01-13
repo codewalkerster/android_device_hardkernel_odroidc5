@@ -15,9 +15,11 @@
 LOCAL_PATH := $(call my-dir)
 LOCAL_PATH := device/hardkernel/odroidc5
 
-
 include $(LOCAL_PATH)/kernel_config_build.mk
 include device/hardkernel/common/factory.mk
 
 # generate boot.cmd for device
 -include device/hardkernel/common/build/hardkernel/RebuildBootScript.mk
+
+# generate fat image for device
+-include device/hardkernel/common/build/hardkernel/BuildFatImg.mk
