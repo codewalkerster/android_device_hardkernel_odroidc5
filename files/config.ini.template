@@ -1,0 +1,45 @@
+[generic]
+###########################
+# Max CPU frequency sets
+little_cpu_max_freq="2508"
+
+###########################
+# Available CPU governors
+# conservative ondemand userspace powersave interactive performance schedutil
+little_cpu_governor="performance"
+
+###########################
+# Max GPU frequency sets
+# 852 666 500 400 285
+gpu_max_freq="852"
+
+###########################
+# Available GPU governors
+# dmc_ondemand venc_ondemand userspace powersave performance simple_ondemand
+gpu_governor="performance"
+
+overlays="i2c0 i2c1 spi0 uart0"
+overlays_resize=16384
+
+###########################
+# ignore hpd
+# user_def_args="disablehpd=true"
+
+###########################
+# Disable VU7
+# user_def_args="disable_vu7=true"
+
+###########################
+# flipped touch screen x,y
+# user_def_args="touch_flip_x=false"
+# user_def_args="touch_flip_y=false"
+
+###########################
+# test mt screen
+# user_def_args="test_mt_vid="0000" test_mt_pid="0000""
+
+###########################
+# Prevent sleep
+# user_def_args="prevent_sleep=true"
+
+user_def_args="quiet"
