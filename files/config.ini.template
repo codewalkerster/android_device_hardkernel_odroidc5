@@ -18,6 +18,10 @@ gpu_max_freq="852"
 # dmc_ondemand venc_ondemand userspace powersave performance simple_ondemand
 gpu_governor="performance"
 
+###########################
+# Display rotation
+display_orientation="0"
+
 overlays="i2c0 i2c1 spi0 uart0"
 overlays_resize=16384
 
