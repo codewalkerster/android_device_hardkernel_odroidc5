@@ -27,6 +27,9 @@ endif # not ODROID_BOARD
 
 PRODUCT_DIR := odroidc5
 
+PRODUCT_DTB_TARGET := common/common14-5.15/out/android14-5.15/dist/s7d_s905x5m_odroidc5_android.dtb
+PRODUCT_DTBO_TARGET := common/common14-5.15/out/android14-5.15/dist/*.dtbo
+
 ########################################################################
 # put ms12 ddp dtshd dovi related to oem partitions.
 ########################################################################

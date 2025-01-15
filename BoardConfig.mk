@@ -16,6 +16,8 @@
 
 PRODUCT_DIR := odroidc5
 
+PRODUCT_KERNEL_DTS := s7d_s905x5m_odroidc5_android
+
 ifneq ($(ANDROID_BUILD_TYPE), 64)
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
