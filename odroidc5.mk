@@ -81,6 +81,7 @@ include device/hardkernel/common/soft_afbc/soft_afbc.mk
 
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)
+$(call inherit-product, device/hardkernel/common/device.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
 $(call inherit-product-if-exists, vendor/amlogic/$(PRODUCT_DIR)/device-vendor.mk)
 
