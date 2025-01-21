@@ -403,7 +403,6 @@ PRODUCT_COPY_FILES += \
 #                          must put in the end of mk files
 ##########################################################################
 include $(wildcard vendor/amlogic/common/pre_submit_for_google/Android.mk)
-include $(wildcard vendor/amlogic/common/auto_patch/Android.mk)
 
 #overlay for seamless switch
  PRODUCT_PACKAGES += \
