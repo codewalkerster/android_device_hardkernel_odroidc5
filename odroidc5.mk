@@ -84,11 +84,19 @@ include device/hardkernel/common/video_algorithm/cuva/cuva.mk
 SOFT_AFBC_MODULE := true
 include device/hardkernel/common/soft_afbc/soft_afbc.mk
 
+ifneq ($(CONFIG_DEVICE_LOW_RAM), true)
+BUILD_WITH_IMG_DEC := true
+endif
+
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)
 $(call inherit-product, device/hardkernel/common/device.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
 $(call inherit-product-if-exists, vendor/amlogic/$(PRODUCT_DIR)/device-vendor.mk)
+
+#add feature mediashell.vp9_mirror
+PRODUCT_COPY_FILES += \
+    device/hardkernel/$(PRODUCT_DIR)/permissions/com.google.android.apps.mediashell.vp9_mirror.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.mediashell.vp9_mirror.xml
 
 #########################################################################
 #
@@ -274,6 +282,10 @@ PRODUCT_PACKAGES += \
 #TARGET_BUILD_NETFLIX_MGKID := true
 #TARGET_BUILD_NETFLIX_MODELGROUP:= XXXXX
 
+ifneq ($(wildcard vendor/amlogic/restricted_libs/nts_ross.mk),)
+include vendor/amlogic/restricted_libs/nts_ross.mk
+endif
+
 ########################################################################
 #
 #                          Audio License Decoder
@@ -316,6 +328,7 @@ endif
 ########################################################################
 TARGET_DOLBY_VERSION ?= non_dolby
 TARGET_DTS_VERSION ?= non_dts
+GEN_AUDIO_POLICY_DURING_BUILD_TIME := true
 $(call inherit-product, device/hardkernel/common/audio.mk)
 ########################################################################
 #  This control decide whether it need to be compatible

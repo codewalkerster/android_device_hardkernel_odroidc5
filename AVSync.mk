@@ -56,3 +56,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #HEAAC(default 10)
 #PRODUCT_PROPERTY_OVERRIDES += \
 #        vendor.media.audio.hal.ms12.nontunnel.pcm=10
+
+###fourth part, non-ms12(ddp license), non-tunnel mode, and CVBS
+PRODUCT_PROPERTY_OVERRIDES += \
+vendor.media.audio.hal.speaker_latency.raw=20
