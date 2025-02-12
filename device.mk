@@ -34,9 +34,6 @@ else
 ifeq ($(TARGET_BUILD_LIVETV),true)
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_tv.xml
 endif
-ifeq ($(PRODUCT_SUPPORT_DTVKIT),true)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_dtvkit.xml
-endif
 ifeq ($(BUILD_WITH_MIRACAST),true)
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_wfd.xml
 endif
@@ -128,8 +125,8 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/mesondisplay.cfg:recovery/root/sbin/mesondisplay.cfg
 
 # Include drawables for all densities
-PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_CONFIG ?= normal large xlarge hdpi tvdpi xhdpi xxhdpi
+PRODUCT_AAPT_PREF_CONFIG ?= xhdpi
 
 
 # for 120zh display mode support
