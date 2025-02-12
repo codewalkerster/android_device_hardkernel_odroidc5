@@ -18,6 +18,9 @@ LOCAL_PATH := device/hardkernel/odroidc5
 include $(LOCAL_PATH)/kernel_config_build.mk
 include device/hardkernel/common/factory.mk
 
+# generate selfinstall_boot.scr for device
+-include device/hardkernel/common/build/hardkernel/BuildSelfinstallBootScript.mk
+
 # generate boot.cmd for device
 -include device/hardkernel/common/build/hardkernel/RebuildBootScript.mk
 
