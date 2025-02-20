@@ -149,8 +149,6 @@ BUILDING_INIT_BOOT_IMAGE ?= true
 # use hwc 3 AIDL service
 HWC_ENABLE_AIDL := true
 
-TARGET_USE_AML_EROFS_TOOL := true
-
 ifeq ($(ODROID_BOARD), true)
 AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_5_15.txt
 else
