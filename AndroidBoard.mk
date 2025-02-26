@@ -25,4 +25,7 @@ include device/hardkernel/common/factory.mk
 -include device/hardkernel/common/build/hardkernel/RebuildBootScript.mk
 
 # generate fat image for device
+-include device/hardkernel/common/build/amlogic/BuildGpt.mk
+
+# generate fat image for device
 -include device/hardkernel/common/build/hardkernel/BuildFatImg.mk
