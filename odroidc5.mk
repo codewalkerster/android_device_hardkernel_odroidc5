@@ -149,12 +149,6 @@ BUILDING_INIT_BOOT_IMAGE ?= true
 # use hwc 3 AIDL service
 HWC_ENABLE_AIDL := true
 
-ifeq ($(ODROID_BOARD), true)
-AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_5_15.txt
-else
-AML_GPT_PART := device/hardkernel/odroidc5/part_table_5_15.txt
-endif
-
 ifneq ($(KERNEL_A32_SUPPORT),true)
 BOARD_PREBUILT_BOOTIMAGE := device/hardkernel/odroidc5-kernel/5.15/gki/boot-lz4.img
 TARGET_NO_KERNEL := true
@@ -172,6 +166,16 @@ BOARD_USES_ODM_EXTIMAGE := true
 BOARD_USES_VENDOR_DLKMIMAGE := true
 BOARD_USES_ODM_DLKMIMAGE := true
 BOARD_USES_SYSTEM_DLKMIMAGE := true
+
+ifeq ($(ODROID_BOARD), true)
+ifeq ($(AB_OTA_UPDATER), true)
+AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_5_15.txt
+else
+AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_ab_vab_5_15.txt
+endif
+else
+AML_GPT_PART := device/hardkernel/odroidc5/part_table_5_15.txt
+endif
 
 ifeq ($(AB_OTA_UPDATER),true)
 BUILDING_VENDOR_BOOT_IMAGE ?= true
@@ -379,6 +383,9 @@ my_src_fstab := fstab.ab_oem
 
 ifeq ($(ODROID_BOARD), true)
 my_dst_fstab := $(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.amlogic
+ifneq ($(AB_OTA_UPDATER), true)
+my_src_fstab := fstab.oem
+endif
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/$(my_src_fstab).hardkernel:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.amlogic \
