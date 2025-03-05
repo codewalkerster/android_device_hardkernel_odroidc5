@@ -209,10 +209,6 @@ endif
 # use uvm
 BOARD_BOOTCONFIG += "use_uvm=1"
 
-TARGET_SUPPORT_USB_BURNING_V2 := true
-TARGET_AMLOGIC_RES_PACKAGE := device/hardkernel/common/logo_img_files
-#TARGET_AMLOGIC_RES_PACKAGE := device/hardkernel/$(PRODUCT_DIR)/logo_img_files
-
 #BOARD_HAL_STATIC_LIBRARIES := libhealthd.mboxdefault
 
 USE_E2FSPROGS := true
