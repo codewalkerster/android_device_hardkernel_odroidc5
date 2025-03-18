@@ -30,6 +30,8 @@ PRODUCT_DIR := odroidc5
 PRODUCT_DTB_TARGET := common/common14-5.15/out/android14-5.15/dist/s7d_s905x5m_odroidc5_android.dtb
 PRODUCT_DTBO_TARGET := common/common14-5.15/out/android14-5.15/dist/*.dtbo
 
+REMOVE_B_PARTITIONS := false
+
 include device/hardkernel/common/BoardConfig.mk
 
 ########################################################################
@@ -169,7 +171,11 @@ BOARD_USES_SYSTEM_DLKMIMAGE := true
 
 ifeq ($(ODROID_BOARD), true)
 ifeq ($(AB_OTA_UPDATER), true)
+ifeq ($(REMOVE_B_PARTITIONS), true)
+AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_no_b_5_15.txt
+else
 AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_vab_5_15.txt
+endif
 else
 AML_GPT_PART := device/hardkernel/odroidc5/part_table_non_ab_vab_5_15.txt
 endif
