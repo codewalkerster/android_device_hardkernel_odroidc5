@@ -25,6 +25,10 @@ on boot
     write /proc/sys/net/core/rps_sock_flow_entries 32768
     write  /sys/class/net/eth0/queues/rx-0/rps_flow_cnt 32768
 
+    #for android things
+    symlink /dev/gpiomem /dev/mem
+    chmod 0666 /dev/mem
+
 on property:ro.boot.oem.key1=*
     setprop ro.oem.key1 ${ro.boot.oem.key1}
 
