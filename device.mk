@@ -222,4 +222,7 @@ ifeq ($(ODROID_BOARD), true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/files/makebootini:$(TARGET_COPY_OUT_VENDOR)/bin/makebootini \
     $(LOCAL_PATH)/files/config.ini.template:$(TARGET_COPY_OUT_VENDOR)/etc/config.ini.template
+
+# boblight
+$(call inherit-product-if-exists, $(LOCAL_PATH)/boblight.mk)
 endif
