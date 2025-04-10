@@ -379,11 +379,7 @@ BOARD_USES_USB_PM := true
 #           OEM Partitions based dynamic fingerprint
 #
 #########################################################################
-ifeq ($(ODROID_BOARD), true)
-BOARD_USES_DYNAMIC_FINGERPRINT ?= false
-else
 BOARD_USES_DYNAMIC_FINGERPRINT ?= true
-endif # ODROID_BOARD
 
 my_src_fstab := fstab.ab_oem
 
