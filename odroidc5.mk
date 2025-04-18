@@ -29,6 +29,7 @@ PRODUCT_DIR := odroidc5
 
 PRODUCT_DTB_TARGET := common/common14-5.15/out/android14-5.15/dist/s7d_s905x5m_odroidc5_android.dtb
 PRODUCT_DTBO_TARGET := common/common14-5.15/out/android14-5.15/dist/*.dtbo
+PRODUCT_UBOOT_TARGET := u-boot/build/u-boot.bin.signed
 
 REMOVE_B_PARTITIONS := false
 
