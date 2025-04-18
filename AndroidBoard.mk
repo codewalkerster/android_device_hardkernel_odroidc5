@@ -26,14 +26,14 @@ include $(LOCAL_PATH)/kernel_config_build.mk
 # generate boot.scr for device
 -include device/hardkernel/common/build/hardkernel/RebuildBootScript.mk
 
+# generate update_boot.scr for device
+-include device/hardkernel/common/build/hardkernel/BuildUpdateBootScript.mk
+
 # generate gpt image for device
 -include device/hardkernel/common/build/amlogic/BuildGpt.mk
 
 # generate fat image for device
 -include device/hardkernel/common/build/hardkernel/BuildFatImg.mk
-
-# generate update_boot.scr for device
--include device/hardkernel/common/build/hardkernel/BuildUpdateBootScript.mk
 
 # generate fat image for device
 -include device/hardkernel/common/build/hardkernel/BuildUpdateFatImg.mk
