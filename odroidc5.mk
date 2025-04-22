@@ -42,8 +42,8 @@ TARGET_BUILD_OEM_WITH_LICENSE_FILES := true
 
 #config of AM301 1080P UI surfaceflinger
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.max_graphics_width=1920  \
-    ro.surface_flinger.max_graphics_height=1080
+    ro.surface_flinger.max_graphics_width=3840  \
+    ro.surface_flinger.max_graphics_height=2160
 
 #########################################################################
 #
