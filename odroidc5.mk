@@ -40,13 +40,23 @@ include device/hardkernel/common/BoardConfig.mk
 ########################################################################
 TARGET_BUILD_OEM_WITH_LICENSE_FILES := true
 
-#config of AM301 1080P UI surfaceflinger
+#PRODUCT_SUPPORT_4K_UI := true
+
+ifeq ($(PRODUCT_SUPPORT_4K_UI), true)
+#config of 2160UI surfaceflinger
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.max_graphics_width=3840  \
+    ro.surface_flinger.max_graphics_width=3840 \
     ro.surface_flinger.max_graphics_height=2160 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 # for max ui witdh config
 PRODUCT_PACKAGES += 4KUIOverlay
+else
+#config of 1080UI surfaceflinger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.surface_flinger.max_graphics_width=1920 \
+    ro.surface_flinger.max_graphics_height=1080 \
+    ro.sf.lcd_density=240
+endif
 
 #########################################################################
 #
@@ -438,7 +448,6 @@ include $(wildcard vendor/amlogic/common/pre_submit_for_google/Android.mk)
 ###########################################################################
 include device/hardkernel/$(PRODUCT_DIR)/AVSync.mk
 
-PRODUCT_SUPPORT_4K_UI := true
 PRODUCT_SUPPORT_ATK_UI := true
 TARGET_BUILD_GMS := true
 
