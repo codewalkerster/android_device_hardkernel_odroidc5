@@ -127,11 +127,11 @@ BUILD_WITH_CTC_MEDIAPROCESSOR := true
 #########################################################################
 BUILD_WITH_AML_MP := true
 
-PRODUCT_NAME := $(TARGET_PRODUCT)
-PRODUCT_DEVICE := $(TARGET_PRODUCT)
-PRODUCT_BRAND := Amlogic
-PRODUCT_MODEL := $(TARGET_PRODUCT)
-PRODUCT_MANUFACTURER := Amlogic
+PRODUCT_NAME := odroidc5
+PRODUCT_DEVICE := odroidc5
+PRODUCT_BRAND := ODROID
+PRODUCT_MODEL := ODROID-C5
+PRODUCT_MANUFACTURER := HardKernel Co., Ltd.
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=Amlogic \
