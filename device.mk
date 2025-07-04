@@ -27,22 +27,11 @@ ifeq ($(BUILD_WITH_MIRACAST),true)
 DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_wfd.xml
 endif
 
-ifeq ($(ODROID_BOARD), true)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic.xml
-else
-#DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE
-ifeq ($(TARGET_BUILD_LIVETV),true)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_tv.xml
-endif
-ifeq ($(BUILD_WITH_MIRACAST),true)
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_wfd.xml
-endif
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic.xml
 
 ifeq ($(BUILD_WITH_VERIMATRIX_DRM),true)
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/device_matrix_product_amlogic_vmx_webclient.xml
 endif
-endif # ODROID_BOARD
 
 # Set Vendor SPL to match platform
 VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
@@ -67,20 +56,8 @@ PRODUCT_CHARACTERISTICS := tablet
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-ifeq ($(ODROID_BOARD), true)
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/init.amlogic.board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.board.rc
-else
-ifneq ($(BOARD_COMPILE_ATV), false)
-#GTVS
-PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/init.amlogic.board.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.board.rc
-else
-#AOSP
-PRODUCT_COPY_FILES += \
-    device/hardkernel/$(PRODUCT_DIR)/init.amlogic.board.ext.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.board.rc
-endif
-endif # ODROID_BOARD
 
 #########################################################################
 #
@@ -167,10 +144,9 @@ endif # ODROID_BOARD
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-ifneq ($(ODROID_BOARD), true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.picture_in_picture.xml:vendor/etc/permissions/android.software.picture_in_picture.xml
-endif # not ODROID_BOARD
+
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.software.picture_in_picture.xml:vendor/etc/permissions/android.software.picture_in_picture.xml
 
 $(call inherit-product, device/hardkernel/common/products/mbox/s7d/device.mk)
 

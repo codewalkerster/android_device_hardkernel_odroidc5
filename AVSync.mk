@@ -25,29 +25,29 @@
 #out PCM(default 15)
 PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.pcmout=15
-#out DD(AC3) (default 50)
+#out DD(AC3) (default 55)
 PRODUCT_PROPERTY_OVERRIDES += \
-        vendor.media.audio.hal.ms12.ddout=85
-#out DDP(EAC3) (default 95)
+        vendor.media.audio.hal.ms12.ddout=55
+#out DDP(EAC3) (default 55)
 PRODUCT_PROPERTY_OVERRIDES += \
-        vendor.media.audio.hal.ms12.ddpout=75
-#out MAT(default 70)
+        vendor.media.audio.hal.ms12.ddpout=55
+#out MAT(default 85)
 PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.matout=85
 
 ###Second part, Tunneled, Stream Audio format
-#AC4(default 30)
+#AC4(default 0)
 PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.tunnel.ac4_hdmi=0
-#DDP(51/Atmos) (default 70)
+#DDP(51/Atmos) (default 10)
 PRODUCT_PROPERTY_OVERRIDES += \
-        vendor.media.audio.hal.ms12.tunnel.ddp_hdmi=30
-#HEAAC(default 70)
+        vendor.media.audio.hal.ms12.tunnel.ddp_hdmi=10
+#HEAAC(default -10)
 PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.tunnel.pcm=-10
 
 ###Third part, Non-Tunnel, Stream Audio format
-#AC4(default 70)
+#AC4(default 40)
 PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.nontunnel.ac4=40
 #DDP(51/Atmos) (default 20)

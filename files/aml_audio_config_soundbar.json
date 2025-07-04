@@ -1,0 +1,17 @@
+{
+    "?_Dolby_MS12_Audio_Config": "Sound UI decides whether to create DAP instance",
+    "Dolby_MS12_Audio_Config": "z",
+    "?_Dolby_DRC_Audio_Config": "Sound UI decides whether to display Dolby DRC UI",
+    "Dolby_DRC_Audio_Config": 0,
+    "?_Passthrough_Audio_Config": "Sound UI decides whether to display passthrough selection",
+    "Passthrough_Audio_Config": 0,
+
+    "?_Dts_DRC_Audio_Config": "Sound UI decides whether to display DTS DRC UI",
+    "Dts_DRC_Audio_Config": 0,
+
+    "?_fixed_configurations": "The following configuration using fixed value",
+    "HDMITX_Src_Select": 4,
+    "HDMITX_Multi_CH_Src_Select": 3,
+    "HDMITX_HBR_Src_Select": 3,
+    "SBR_Speaker_OTT_HBR_Same_TDM": 1
+}

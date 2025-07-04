@@ -1,5 +1,9 @@
 <mixer>
   <ctl name="PDM Gain" value="40" />
+  <ctl name="ad82128_c_30 Master Mute" value="1" />
+  <ctl name="ad82128_c_31 Master Mute" value="1" />
+  <ctl name="ad82128_c_30 Power Down" value="1" />
+  <ctl name="ad82128_c_31 Power Down" value="1" />
   <!-- dummy xml conf, do nothing here -->
   <path name="speaker">
     <ctl name="ad82128_c_30 Master Mute" value="0" />
@@ -25,6 +29,16 @@
 
   <path name="hdmi">
       <ctl name="Audio hdmi-out mute" value="0" />
+  </path>
+
+  <path name="amp_power">
+    <ctl name="ad82128_c_30 Power Down" value="0" />
+    <ctl name="ad82128_c_31 Power Down" value="0" />
+  </path>
+
+  <path name="amp_power_off">
+    <ctl name="ad82128_c_30 Power Down" value="1" />
+    <ctl name="ad82128_c_31 Power Down" value="1" />
   </path>
 
   <path name="headphone">
