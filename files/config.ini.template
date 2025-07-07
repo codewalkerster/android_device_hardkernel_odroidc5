@@ -22,7 +22,7 @@ gpu_governor="performance"
 # Display rotation
 display_orientation="0"
 
-overlays="i2c0 i2c1 spi0 uart1"
+overlays="ir i2c0 i2c1 spi0 uart1"
 overlays_resize=16384
 
 ###########################
