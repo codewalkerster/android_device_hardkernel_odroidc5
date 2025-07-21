@@ -46,4 +46,8 @@ overlays_resize=16384
 # Prevent sleep
 # user_def_args="prevent_sleep=true"
 
+###########################
+# set voutmode to DVI.
+# user_def_args="aml_media.voutmode=dvi"
+
 user_def_args="quiet"
