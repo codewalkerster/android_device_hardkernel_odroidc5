@@ -50,4 +50,8 @@ overlays_resize=16384
 # set voutmode to DVI.
 # user_def_args="aml_media.voutmode=dvi"
 
+###########################
+# set disablehpd.
+# user_def_args="aml_media.disablehpd=true"
+
 user_def_args="quiet"
