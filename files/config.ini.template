@@ -26,10 +26,6 @@ overlays="ir i2c0 i2c1 spi0 uart1"
 overlays_resize=16384
 
 ###########################
-# ignore hpd
-# user_def_args="disablehpd=true"
-
-###########################
 # Disable VU7
 # user_def_args="disable_vu7=true"
 
