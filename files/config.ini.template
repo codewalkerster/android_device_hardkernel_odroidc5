@@ -27,31 +27,32 @@ overlays_resize=16384
 
 ###########################
 # Disable VU7
-# user_def_args="disable_vu7=true"
+# disable_vu7="true"
 
 ###########################
 # flipped touch screen x,y
-# user_def_args="touch_flip_x=false"
-# user_def_args="touch_flip_y=false"
+# touch_flip_x="false"
+# touch_flip_y="false"
 
 ###########################
 # test mt screen
-# user_def_args="test_mt_vid="0000" test_mt_pid="0000""
+# test_mt_vid="0000"
+# test_mt_pid="0000"
 
 ###########################
 # Prevent sleep
-# user_def_args="prevent_sleep=true"
+# prevent_sleep="true"
 
 ###########################
-# set voutmode to DVI.
-# user_def_args="aml_media.voutmode=dvi"
+# set hdmi output mode as DVI. (video only)
+# voutmode="dvi"
 
 ###########################
-# set disablehpd.
-# user_def_args="aml_media.disablehpd=true"
+# Disable hot plug detection when HDMI plug is unplugged
+# disablehpd="true"
 
 ###########################
-# set force_hpd
-force_hpd=false
+# force hot plug detect on boot sequence
+force_hpd="false"
 
 user_def_args="quiet"
