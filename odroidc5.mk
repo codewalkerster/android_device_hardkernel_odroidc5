@@ -472,3 +472,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.official=https://dn.odroid.com/S905X5M/ODROID-C5/Android/14/ \
     ro.url.mirror=https://www.odroid.in/mirror/dn.odroid.com/S905X5M/ODROID-C5/Android/14/
 
+BOARD_ENABLE_LE_AUDIO := true
