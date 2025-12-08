@@ -25,6 +25,9 @@ ATV_LAUNCHER ?= amati
 endif
 endif # not ODROID_BOARD
 
+BOARD_ENABLE_ETH_MDNSOFFLOAD := true
+
+
 PRODUCT_DIR := odroidc5
 
 PRODUCT_DTB_TARGET := common/common14-5.15/out/android14-5.15/dist/s7d_s905x5m_odroidc5_android.dtb
@@ -102,6 +105,11 @@ include device/hardkernel/common/soft_afbc/soft_afbc.mk
 ifneq ($(CONFIG_DEVICE_LOW_RAM), true)
 BUILD_WITH_IMG_DEC := true
 endif
+
+
+BOARD_ENABLE_FAR_FIELD_AEC := true
+
+BUILD_WITH_IMG_DEC := true
 
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)

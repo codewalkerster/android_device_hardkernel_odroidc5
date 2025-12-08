@@ -23,6 +23,10 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_common.xml
 #DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_ir.xml
 
+ifeq ($(TARGET_BUILD_IRDETO),true)
+DEVICE_MANIFEST_FILE += device/hardkernel/$(PRODUCT_DIR)/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_irdeto.xml
+endif
+
 ifeq ($(BUILD_WITH_MIRACAST),true)
 DEVICE_MANIFEST_FILE += device/hardkernel/common/hidl_manifests/$(PRODUCT_SHIPPING_API_LEVEL)/manifest_wfd.xml
 endif

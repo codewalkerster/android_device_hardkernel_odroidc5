@@ -33,7 +33,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         vendor.media.audio.hal.ms12.ddpout=55
 #out MAT(default 85)
 PRODUCT_PROPERTY_OVERRIDES += \
-        vendor.media.audio.hal.ms12.matout=85
+        vendor.media.audio.hal.ms12.matout=35
 
 ###Second part, Tunneled, Stream Audio format
 #AC4(default 0)
