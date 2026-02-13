@@ -1,4 +1,7 @@
 #!/bin/sh
+rmmod dwav_usb_mt
+modprobe -d /vendor/lib/modules /vendor/lib/modules/dwav-usb-mt.ko
+
 if [ -e "/fat/config.ini" ];
 then
     echo "config.ini exist"
