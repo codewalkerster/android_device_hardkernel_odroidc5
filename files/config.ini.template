@@ -55,4 +55,8 @@ overlays_resize=16384
 # force hot plug detect on boot sequence
 force_hpd="false"
 
+###########################
+# set mouse to touch for hid-generic.
+# mouse2touch="true"
+
 user_def_args="quiet"
