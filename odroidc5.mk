@@ -116,6 +116,7 @@ $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/device.mk)
 $(call inherit-product, device/hardkernel/common/device.mk)
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
 $(call inherit-product-if-exists, vendor/amlogic/$(PRODUCT_DIR)/device-vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 
 #add feature mediashell.vp9_mirror
 PRODUCT_COPY_FILES += \
